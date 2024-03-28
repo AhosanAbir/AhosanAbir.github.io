@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Noto Serif', serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #00FF00;
+}
+div {
+  height: 200px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+input {
+	font-size: 22px;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 75px;
+  color: #FFA500;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #800080;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(255,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+  font-family: 'Inconsolata', monospace;
+  color: #FFFF00
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://i.imgur.com/SgSRc8b.png");
+}
+.second{
+  background-image: url("https://i.imgur.com/1r9bNsK.png");
+}
+.dessert{
+  background-image: url("https://i.imgur.com/OEEDWyi.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Ahonsan Electronics</h1>
+<h2>Best Electronic Products In New York</h2>
+<div class="first">
+ <input  class="quantities" type="number" min="0" style="width: 50px"> 
+  <p> MICROWAVE OVENS<span class="price">$150</span><br />
+  <small>Cooking in a microwave oven (compared to baking in the oven or frying) eliminates the formation of tars and char, which are carcinogenic, because of its lower temperature of cooking, which is in fact boiling point of water. </small></p>
+</div>
+
+
+<div class="second">
+	 <input  class="quantities" type="number" min="0" style="width: 50px"> 
+  <p>Hotpoint <span class="price">$999</span><br />
+  <small>We love Hotpoint as a trusted, affordable and reliable brand for over 110 years. Its latest washing machines and dryers with ActiveCare have PRO-Inverter motor technology, resulting in quiet, efficient and durable appliances. </small></p>
+</div>
+  
+<div class="dessert">
+	 <input  class="quantities" type="number" min="0" style="width: 50px"> 
+  <p>
+ExxonMobil <span class="price">$500</span><br />
+  <small>ExxonMobil's competitive advantage was built through an integrated business model that not only caters to its customers but also to the company's shareholders. Its unique marketing strategy successfully differentiated it from its competitors in the oil and gas industry.</small></p>
+</div>
+<br><br>
+  <input id="Name" placeholder="Your name">
+  <input id="Email"type="email" placeholder="Your email">
+  <input id="submit" type="submit">
+ <br><br>
+
+<script>
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAIzDru1cHkB72_8gDT5jz9xNE57w87PqE",
+    authDomain: "ahosana3-a7b95.firebaseapp.com",
+    databaseURL: "https://ahosana3-a7b95-default-rtdb.firebaseio.com",
+    projectId: "ahosana3-a7b95",
+    storageBucket: "ahosana3-a7b95.appspot.com",
+    messagingSenderId: "378882892314",
+    appId: "1:378882892314:web:808939dd16a6ab7117e7a3"
+  };
+
+  // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+ const db = getDatabase(app); 
+ const Name = document.querySelector("#Name") 
+ const Email = document.querySelector("#Email")
+ document.querySelector('#submit').addEventListener('click', Submit)
+ const quantities = document.querySelectorAll(".quantities") 
+ const itemsList = ["Microwave", "Hotpoint", "Exxon"]
+ const prices = document.querySelectorAll(".price") 
+  
+  
+  
+	
+	function Submit() {
+	  const timestamp = buildTimestamp()
+	  let total = 0
+  	  let cart = { }
+  	  for  (let i=0; i<quantities.length; i=i+1) {
+  	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+            let price = prices[i].innerHTML.replace('$', '')
+			 total = total + quantities[i].value * price 
+			
+  	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+  	  	}
+  	  	quantities[i].value = ""
+  	  }
+		
+	  
+	  set(ref(db, timestamp), {
+		  Name: Name.value,
+	      email: Email.value,
+		  cart: cart,
+          totalPrice: total,
+		  paid: "not yet",
+		  
+	  });
+
+	  Name.value = ""
+	  Email.value = ""
+	}
+	function buildTimestamp() {
+		  const now = new Date();
+		  let timestamp = now.getFullYear().toString() + "/";
+		  //const month = now.toLocaleString('default', { month: 'long' });
+
+		  let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+		  month = month.toString()
+		  month = addLeadingZero(month)
+		  timestamp += month + "/"; 
+
+		  let date = now.getDate().toString()
+		  date = addLeadingZero(date)
+		  timestamp += date + "/";
+
+		  let hours = now.getHours().toString()
+		  hours = addLeadingZero(hours)
+		  timestamp += hours + ":";
+
+		  let minutes = now.getMinutes().toString()
+		  minutes = addLeadingZero(minutes)
+		  timestamp += minutes + ":";
+
+		  let seconds = now.getSeconds().toString()
+		  seconds = addLeadingZero(seconds)
+		  timestamp += seconds;
+  
+		  return timestamp
+		}
+	
+		function addLeadingZero(units) {
+			if (units.length < 2) {
+				units = "0" + units
+			}
+			return units
+		}
+	
+	
+
+</script>
+
+</body>
